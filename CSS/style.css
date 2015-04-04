@@ -1,0 +1,110 @@
+/* @group center 
+ * reference:http://www.gbtags.com/gb/gbliblist/20.htm
+ */
+
+/* @水平居中：行内元素解决方案
+ *把行内元素包裹在一个属性display为block的父层元素中，并且把父层元素添加如下属性即可 
+ *适用元素：文字，链接，及其其它inline或者inline-*类型元素（inline-block，inline-table，inline-flex）
+ */
+.inline-horizon-center{
+	text-align: center; 
+}
+
+/* @水平居中：块状元素解决方案
+ *对于块状元素（display:block）需要将它的左右外边距（即，margin-left，margin-right）设置为auto
+ */
+.block-horizon-center{
+	margin:0 auto;
+}
+
+/* @水平居中：多个块状元素解决方案
+ *1.如果页面里有多个块状元素需要水平排列居中，可以将元素的display属性设置为inline-block
+ *2.并且把父元素的text-align属性设置为center即可实现。
+ */
+.multiblock-horizon-center-parent{
+	text-align: center; 
+}
+.multiblock-horizon-center-child{
+	display: inline-block; 
+}
+
+/* @水平居中：多个块状元素解决方案 (使用flexbox布局实现)
+ *使用flexbox布局，只需要把待处理的块状元素的父元素添加属性display:flex及justify-content:center即可
+ */
+.multiblock-horizon-center-parent-flex{
+	display:flex; 
+}
+.multiblock-horizon-center-child-flex{
+	justify-content:center; 
+}
+
+/* @垂直居中：单行的行内元素解决方案
+ *当一个行内元素，即inline，inline-*类型的元素需要居中的话，可以将它的height和line-height同时设置为父元素的高度即可实现垂直居中效果。
+ */
+ .single-inline-vertical-center-parent{
+	height: 200px;
+ }
+ .single-inline-vertical-center-child{
+ 	/* display: inline or inline-*; */
+	line-height: 200px;
+ }
+
+ /* @垂直居中：多行的行内元素解决方案
+ *组合使用display:table-cell和vertical-align:middle属性来定义需要居中的元素的父容器元素生成效果
+ */
+.multi-inline-vertical-center-parent{
+	display: table-cell;
+  	vertical-align:middle;
+}
+
+/* @垂直居中：已知高度的块状元素解决方案
+ *父元素设置positon为非static，否则子元素根据最近的已明显定位的元素定位，否则根据最初始的包含块body
+ */
+ .block-vertical-center-parent{
+  	position: relative;
+ }
+ .block-vertical-center-child{
+ 	top: 50%;
+  	margin-top: -50px; /* 子元素高度一半 */
+  	position: absolute;
+  	padding:0;
+ }
+
+ /* @垂直居中：未知高度的块状元素解决方案
+ *父元素设置positon为非static，否则子元素根据最近的已明显定位的元素定位，否则根据最初始的包含块body
+ */
+ .block-vertical-center-parent{
+  	position: relative;
+ }
+ .unblock-vertical-center-child{
+ 	top: 50%;
+  	position: absolute;
+  	transform: translateY(-50%); /* 这里我们使用css3的transform来达到类似效果 */
+ }
+
+ /* @水平垂直居中：已知高度和宽度的元素解决方案
+ *父元素设置positon为非static
+ */
+.block-center-parent{
+  	position: relative;
+ }
+ .block-center-child{
+ 	position: absolute;
+ 	top:50%;
+ 	left: 50%;
+ 	margin-top: -50px; /* 子元素高度一半 */
+ 	margin-left: -75px; /* 子元素宽度一半 */
+ }
+
+ /* @水平垂直居中：未知高度和宽度的元素解决方案
+ *父元素设置positon为非static
+ */
+.unblock-center-parent{
+  	position: relative;
+ }
+ .unblock-center-child{
+ 	position: absolute;
+  	top: 50%;
+  	left: 50%;
+  	transform: translate(-50%, -50%);
+ }
