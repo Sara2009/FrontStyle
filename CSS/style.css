@@ -1,115 +1,10 @@
-/* @group center 
- * reference:http://www.gbtags.com/gb/gbliblist/20.htm
- */
-
-/* @水平居中：行内元素解决方案
- *把行内元素包裹在一个属性display为block的父层元素中，并且把父层元素添加如下属性即可 
- *适用元素：文字，链接，及其其它inline或者inline-*类型元素（inline-block，inline-table，inline-flex）
- */
-.inline-horizon-center{
-  text-align: center; 
+.dotted-line{
+  border-bottom:1px dotted #CCC;
+  margin: 20px auto;
 }
 
-/* @水平居中：块状元素解决方案
- *对于块状元素（display:block）需要将它的左右外边距（即，margin-left，margin-right）设置为auto
- */
-.block-horizon-center{
-  margin:0 auto;
-}
-
-/* @水平居中：多个块状元素解决方案
- *1.如果页面里有多个块状元素需要水平排列居中，可以将元素的display属性设置为inline-block
- *2.并且把父元素的text-align属性设置为center即可实现。
- */
-.multiblock-horizon-center-parent{
-  text-align: center; 
-}
-.multiblock-horizon-center-child{
-  display: inline-block; 
-}
-
-/* @水平居中：多个块状元素解决方案 (使用flexbox布局实现)
- *使用flexbox布局，只需要把待处理的块状元素的父元素添加属性display:flex及justify-content:center即可
- */
-.multiblock-horizon-center-parent-flex{
-  display:flex; 
-}
-.multiblock-horizon-center-child-flex{
-  justify-content:center; 
-}
-
-/* @垂直居中：单行的行内元素解决方案
- *当一个行内元素，即inline，inline-*类型的元素需要居中的话，可以将它的height和line-height同时设置为父元素的高度即可实现垂直居中效果。
- */
- .single-inline-vertical-center-parent{
-  height: 200px;
- }
- .single-inline-vertical-center-child{
-  /* display: inline or inline-*; */
-  line-height: 200px;
- }
-
- /* @垂直居中：多行的行内元素解决方案
- *组合使用display:table-cell和vertical-align:middle属性来定义需要居中的元素的父容器元素生成效果
- */
-.multi-inline-vertical-center-parent{
-  display: table-cell;
-    vertical-align:middle;
-}
-
-/* @垂直居中：已知高度的块状元素解决方案
- *父元素设置positon为非static，否则子元素根据最近的已明显定位的元素定位，否则根据最初始的包含块body
- */
- .block-vertical-center-parent{
-    position: relative;
- }
- .block-vertical-center-child{
-  top: 50%;
-    margin-top: -50px; /* 子元素高度一半 */
-    position: absolute;
-    padding:0;
- }
-
- /* @垂直居中：未知高度的块状元素解决方案
- *父元素设置positon为非static，否则子元素根据最近的已明显定位的元素定位，否则根据最初始的包含块body
- */
- .block-vertical-center-parent{
-    position: relative;
- }
- .unblock-vertical-center-child{
-  top: 50%;
-    position: absolute;
-    transform: translateY(-50%); /* 这里我们使用css3的transform来达到类似效果 */
- }
-
- /* @水平垂直居中：已知高度和宽度的元素解决方案
- *父元素设置positon为非static
- */
-.block-center-parent{
-    position: relative;
- }
- .block-center-child{
-  position: absolute;
-  top:50%;
-  left: 50%;
-  margin-top: -50px; /* 子元素高度一半 */
-  margin-left: -75px; /* 子元素宽度一半 */
- }
-
- /* @水平垂直居中：未知高度和宽度的元素解决方案
- *父元素设置positon为非static
- */
-.unblock-center-parent{
-    position: relative;
- }
-.unblock-center-child{
-  position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
- }
 /* @group img */
-.img-size{
+.img-size-150{
   border:0;  
   margin:0;  
   padding:0;  
@@ -117,4 +12,143 @@
   max-height:150px;  
   width:expression(this.width>150?"150px":this.width);  
   height:expression(this.height>150?"  150px":this.height);  
+}
+
+.img-circle-css3{
+  border-radius:50%; /* 使用CSS3 */
+}
+
+/* @group equal-height-col 
+ * Reference:CSS Mastery Advanced Web Standards Solutions Second Edition;
+ */
+/* 
+ * 等高文本列
+ */
+.equal-height-col-group{
+  position: relative;
+  padding: 0 20px;
+  overflow: hidden;
+}
+.equal-height-col-box{
+  text-align: left;
+  width: 250px;
+  margin-left: 20px;
+  display: inline-block;
+  padding: 20px;
+  vertical-align: top;
+  padding-bottom: 300px;
+  margin-bottom: -300px; 
+  border-top: 1px solid #ddd;
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  background-color: #E7E7E7;
+}
+.equal-height-col-box:first-child{
+  margin-left: 0;
+}
+
+.equal-height-col-bottom {
+  position: absolute;
+  bottom: 0;
+  height: 20px;
+  width: 290px;
+  border-bottom: 1px solid #ddd;
+  margin-left: -20px; 
+}
+/* 
+ * 使用CSS3创建等高文本列
+ */
+.equal-height-col-css3 {
+  text-align: left;
+  -moz-column-count: 3;
+  -moz-column-width: 14em;
+  -moz-column-gap: 2em;
+  -moz-column-rule: 1px solid #ccc;
+  -webkit-column-count: 3;
+  -webkit-column-width: 14em;
+  -webkit-column-gap: 2em;
+  -webkit-column-rule: 1px solid #ccc;
+}
+
+/* 
+ *@group Thumbnail
+ */
+.thumbnail-box{
+  text-align: left;
+  width: 250px;
+  padding: 4px;
+  border: 1px solid #ccc;
+  margin: 0 20px;
+  display: block;
+  border-radius:4px;
+  -webkit-transition:border .2s ease-in-out;
+  transition:border: .2s ease-in-out;
+}
+.thumbnail-box:hover{
+  cursor:pointer;
+  text-decoration: none;
+  border-color:#337ab7
+}
+.thumbnail-box img{
+  height: 200px;
+  width: 100%;
+  display: block;
+}
+.thumbnail-box .thumbnail-caption{
+  padding:9px;
+}
+/* @group Media */
+/* 使用display:table-cell实现 */
+.media-box, .media-body{
+  overflow: hidden; 
+  zoom: 1;
+}
+.media-box{
+  margin-top: 0.5em;
+}
+.media-left, .media-body, .media-right{
+  display: table-cell;
+  vertical-align: top;
+}
+.media-left{
+  padding-right: 10px;
+}
+.media-right{
+  padding-left: 10px;
+}
+.media-header{
+  margin-top: 0;
+  margin-bottom: 0.5em;
+  line-height: 1;
+}
+.media-body p{
+  margin: 0;
+}
+/* 使用float实现 */
+.media-box-float{
+  background-color:#F8F8F8;
+  border: solid 1px #ddd;
+  padding: 10px;
+}
+.media-left-float{
+  float: left;
+  width:8%;
+  max-width: 64px;
+  overflow: hidden;
+}
+.media-left-float img{
+  max-width: 64px;
+}
+
+.media-body-float{
+  float: right;
+  width:90%;
+}
+
+.media-body-float p{
+  margin:0;
+}
+/* @group word-bread */
+p{
+ word-wrap:break-word; overflow:hidden;
 }
