@@ -155,10 +155,11 @@ footer {
  */
 .multiblock-horizon-center-parent-flex{
   display:flex; 
-}
-.multiblock-horizon-center-child-flex{
   justify-content:center; 
 }
+/* .multiblock-horizon-center-child-flex{
+  
+} */
 
 /* @垂直居中：单行的行内元素解决方案
  *当一个行内元素，即inline，inline-*类型的元素需要居中的话，可以将它的height和line-height同时设置为父元素的高度即可实现垂直居中效果。
@@ -176,7 +177,7 @@ footer {
  */
 .multi-inline-vertical-center-parent{
   display: table-cell;
-    vertical-align:middle;
+  vertical-align:middle;
 }
 
 /* @垂直居中：已知高度的块状元素解决方案
@@ -186,7 +187,7 @@ footer {
     position: relative;
  }
  .block-vertical-center-child{
-  top: 50%;
+    top: 50%;
     margin-top: -50px; /* 子元素高度一半 */
     position: absolute;
     padding:0;
@@ -199,7 +200,7 @@ footer {
     position: relative;
  }
  .unblock-vertical-center-child{
-  top: 50%;
+    top: 50%;
     position: absolute;
     transform: translateY(-50%); /* 这里我们使用css3的transform来达到类似效果 */
  }
@@ -231,7 +232,7 @@ footer {
     transform: translate(-50%, -50%);
  }
  /* 
-  *@group position
+  *@group float
   */
 .left-float{
   float:left;

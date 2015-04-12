@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>DOM-Offset</title>
+</head>
+<body style="margin:10px; font:18px 'Trebuchet MS';">
+	<style type="text/css">
+        body {
+            border:20px solid #CCC;
+            margin:10px;
+            padding:40px;
+            background:#EEE;
+        } 
+        #test {
+            width:400px;
+            height:300px;
+            padding:20px;
+            background:#F60;
+            border:5px solid #888;
+            margin:30px;
+        }
+    </style>
+    <div id="box" style="position:relative;width:300px;height:200px;border:5px solid black;overflow:scroll">
+    	<div id="test"></div>
+    </div>
+    <div style="float:left; margin:50px; background:wheat;">
+  		<p id="P" style="width:50px; height:50px; margin:50px; background:plum;">P</p>
+	</div>
+		<div id="info" style="clear:left;"></div>
+    <script>
+        var test = document.getElementById("test");
+        test.innerHTML = "<p>Browser:" + navigator.userAgent + "</p>" +
+            "<p>offsetWidth:" + test.offsetWidth + "</p>" +
+            "<p>offsetHeight:"+test.offsetHeight+"</p>"+
+            "<p>offsetLeft:"+test.offsetLeft+"</p>"+
+            "<p>offsetTop:"+test.offsetTop+"</p>";
+        var obj = test;
+        var left = 0;
+        while(obj){
+        	console.log(obj);
+        	console.log(obj.offsetLeft);
+        	left += obj.offsetLeft;
+        	obj = obj.offsetParent;
+
+        }
+        test.innerHTML += "<p>Left:"+left+"</p>";
+    function $(id) { return document.getElementById(id); }
+  	window.onload = function () {
+    $('info').innerHTML += '<br />P\'s offsetParent: ' + $('P').offsetParent.tagName;
+    $('info').innerHTML += '<br />P\'s offsetTop: ' + $('P').offsetTop;
+    $('info').innerHTML += '<br />P\'s offsetLeft: ' + $('P').offsetLeft;
+  }
+    </script>
+</body>
+</html>
